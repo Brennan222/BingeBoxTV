@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="movies.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e5b4f9fd44.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <header>
+    <div class="background__overlay">
+      <div class="header__container">
+          <nav class="header__nav">
+            <img class="logo" src="./assetsmovie/tvicon.png" alt="" />
+            <div class="nav__btns">
+              <button class="nav__btn click">REGISTER</button>
+              <button class="nav__btn click">SIGN IN</button>
+            </div>
+          </nav>
+          <div class="header-content">
+            <h1>Browse Movies & Shows</h1>
+            <div class="search-bar">
+              <input type="text" placeholder="Search by Title" id="searchInput"/>
+              <button onclick="searchMovies()" class="search__btn click">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <div id="movieContainer"></div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="header__stripe"></div>
+  </header>
+  <body class="movies__background">
+    <div class="movies__container">
+      <div class="row">
+        <div class="movies__wrapper">
+          <img class="poster" src="./assetsmovie/ahs.jpg" alt="">
+          <img class="poster" src="./assetsmovie/shogun.jpg" alt="">
+          <img class="poster" src="./assetsmovie/handmaids.jpg" alt="">
+          <img class="poster" src="./assetsmovie/avatar.jpg" alt="">
+          <img class="poster" src="./assetsmovie/thewheeloftime.jpg" alt="">
+          <img class="poster" src="./assetsmovie/superman.jpg" alt="">
+          <img class="poster" src="./assetsmovie/ratched.jpg" alt="">
+          <img class="poster" src="./assetsmovie/eternal.jpg" alt="">
+          <img class="poster" src="./assetsmovie/joker.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    <a href="#">
+      <button class="movie__btn">
+        <img class="movie__logo" src="./assetsmovie/BBicon.png" alt="">
+      </button>
+    </a>
+  </body>
+  </html>
