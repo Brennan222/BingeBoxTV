@@ -159,6 +159,7 @@ footer {
   color: white;
   margin: 0px 28px;
   text-decoration: none;
+  text-align: center;
 }
 
 .footer__link:hover {
@@ -227,16 +228,6 @@ header {
   height: 32.9vh;
 }
 
-/* .header__nav {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-} */
-
 .header-content {
   text-align: center;
   width: 100%;
@@ -300,16 +291,6 @@ header {
   height: 80px;
   background: radial-gradient(circle, #1e90ff 0%, #104e8b 100%);
 }
-/* .header__stripe {
-  top: 300px;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  position: relative;
-  z-index: 1;
-  background: radial-gradient(circle, #1e90ff 0%, #104e8b 100%);
-} */
-
 
 .movie__btn {
   background-color: transparent;
@@ -331,6 +312,33 @@ header {
 
 .movie__logo:active {
   transform: scale(0.9);
+}
+
+#searchLabel {
+  text-align: left;
+  padding: 10px 20px;
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+#loadingSpinner {
+  text-align: center;
+  padding-top: 60px;
+  display: none;
+}
+
+.movie__loading--spinner {
+  font-size: 60px;
+  color: #1e90ff;
+  animation: spin 600ms linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .poster {

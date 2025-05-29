@@ -1,31 +1,39 @@
-  async function searchMovies() {
-    const query = document.getElementById("searchInput").value.trim();
-    const apiKey = "6ba9a821";
-    const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(query)}`;
+async function searchMovies() {
+  const query = document.getElementById("searchInput").value.trim();
+  const apiKey = "6ba9a821";
+  const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${encodeURIComponent(query)}`;
+  
+  const spinner = document.getElementById("loadingSpinner");
+  spinner.style.display = "block";
 
+  try {
     const response = await fetch(url);
     const data = await response.json();
-
     const posters = document.querySelectorAll(".poster");
 
-    if (data.Response === "True") {
-      const movies = data.Search.slice(0, 9); // get first 9 results
+    posters.forEach(img => {
+      img.style.display = "none";
+    });
 
-      posters.forEach((img, index) => {
-        if (movies[index]) {
-          const movie = movies[index];
-          img.src = movie.Poster !== "N/A" ? movie.Poster : "fallback.jpg"; // optional fallback
-          img.alt = movie.Title;
-        } else {
-          // If fewer than 9 results, hide extra posters
-          img.style.display = "none";
+    if (data.Response === "True") {
+      document.getElementById("searchLabel").textContent = `Search for: "${query}"`;
+
+      const movies = data.Search.filter(movie => movie.Poster !== "N/A").slice(0, 9);
+
+      movies.forEach((movie, index) => {
+        if (posters[index]) {
+          posters[index].src = movie.Poster;
+          posters[index].alt = movie.Title;
+          posters[index].style.display = "inline-block";
         }
       });
     } else {
-      posters.forEach(img => {
-        img.style.display = "none";
-      });
       alert(`No results found for "${query}".`);
     }
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    spinner.style.display = "none";
   }
-
+}
