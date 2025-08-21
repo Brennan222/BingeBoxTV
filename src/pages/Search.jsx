@@ -1,14 +1,18 @@
-import React from 'react'
-import Header from '../components/Header'
-import Movies from '../components/Movies'
+import React, { useState } from 'react';
+import Header from '../components/Header';
+import Movies from '../components/Movies';
 
-const Search = () => {
+function Search() {
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <>
-    <Header />
-    <Movies />
+      <Header setSearchResults={setSearchResults} setSearchQuery={setSearchQuery} />
+      <Movies searchResults={searchResults} searchQuery={searchQuery} />
     </>
-  )
+  );
 }
 
-export default Search
+export default Search;
+
